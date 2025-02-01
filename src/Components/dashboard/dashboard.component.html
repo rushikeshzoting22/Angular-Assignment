@@ -1,0 +1,76 @@
+<mat-sidenav-container class="sidenav-container">
+    <!-- Sidebar -->
+    <mat-sidenav #sidenav mode="side" opened [fixedInViewport]="true" class="sidenav">
+      <mat-nav-list>
+        <a mat-list-item href="#" class="menu-item">Dashboard</a>
+        <!-- Add more menu items here -->
+      </mat-nav-list>
+    </mat-sidenav>
+  
+    <!-- Main Content -->
+    <mat-sidenav-content>
+      <mat-toolbar color="primary" class="toolbar">
+        <button mat-icon-button (click)="sidenav.toggle()">
+          <mat-icon>menu</mat-icon>
+        </button>
+        <span class="toolbar-title">Dashboard</span>
+      </mat-toolbar>
+  
+      <!-- Dashboard content -->
+      <div class="content">
+        <mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8 table">
+          <ng-container matColumnDef="name">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
+            <mat-cell *matCellDef="let element">{{ element.name }}</mat-cell>
+          </ng-container>
+  
+          <ng-container matColumnDef="company">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Company </mat-header-cell>
+            <mat-cell *matCellDef="let element">{{ element.company }}</mat-cell>
+          </ng-container>
+  
+          <ng-container matColumnDef="username">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Username </mat-header-cell>
+            <mat-cell *matCellDef="let element">{{ element.username }}</mat-cell>
+          </ng-container>
+  
+          <ng-container matColumnDef="email">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Email </mat-header-cell>
+            <mat-cell *matCellDef="let element">{{ element.email }}</mat-cell>
+          </ng-container>
+  
+          <ng-container matColumnDef="address">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Address </mat-header-cell>
+            <mat-cell *matCellDef="let element">{{ element.address }}</mat-cell>
+          </ng-container>
+  
+          <ng-container matColumnDef="zip">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Zip </mat-header-cell>
+            <mat-cell *matCellDef="let element">{{ element.zip }}</mat-cell>
+          </ng-container>
+  
+          <ng-container matColumnDef="state">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> State </mat-header-cell>
+            <mat-cell *matCellDef="let element">{{ element.state }}</mat-cell>
+          </ng-container>
+  
+          <ng-container matColumnDef="country">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Country </mat-header-cell>
+            <mat-cell *matCellDef="let element">{{ element.country }}</mat-cell>
+          </ng-container>
+  
+          <ng-container matColumnDef="phone">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Phone </mat-header-cell>
+            <mat-cell *matCellDef="let element">{{ element.phone }}</mat-cell>
+          </ng-container>
+  
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
+  
+        <!-- Pagination -->
+        <mat-paginator [pageSize]="5" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+  

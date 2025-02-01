@@ -1,0 +1,59 @@
+/* Full-screen centered login container */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+  }
+  
+  /* Glassmorphism effect for the login card */
+  .login-card {
+    width: 380px;
+    padding: 20px;
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    color: #fff;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .login-card:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Styling the form fields */
+  .full-width {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  
+  mat-form-field {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+  }
+  
+  /* Stylish login button */
+  .login-button {
+    font-size: 16px;
+    font-weight: bold;
+    padding: 12px;
+    border-radius: 8px;
+  }
+  
+  /* Improve button hover effect */
+  .login-button:hover {
+    background: #ff6f61;
+  }
+  
+  /* Make placeholder text more readable */
+  mat-label {
+    color: #fff;
+  }
+  
+  mat-icon {
+    color: #fff;
+  }
+  

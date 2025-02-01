@@ -38,14 +38,14 @@ export class UserFormComponent {
     });
   }
 
-
+  // Submit the form
   onSubmit() {
     if (this.userForm.valid) {
       this.dialogRef.close(this.userForm.value);
     }
   }
 
-
+  // Close the dialog without saving
   onCancel() {
     this.dialogRef.close();
   }

@@ -62,6 +62,7 @@ export class DashboardComponent implements OnInit {
   @ViewChild(MatSort) sort!: MatSort;
 
   opened = true; 
+  editedid : number=0;
 
   constructor(private userService: UserService, private dialog: MatDialog) {}
 
@@ -74,7 +75,13 @@ export class DashboardComponent implements OnInit {
       this.dataSource.data = data;
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
+      this.sortUsers()
     });
+  }
+
+  sortUsers(){
+    this.dataSource.data.sort(x=>x.id);
+
   }
 
   applyFilter(event: Event) {
@@ -87,24 +94,34 @@ export class DashboardComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        this.userService.addUser(result).subscribe(() => this.loadUsers());
+       this.dataSource.data.sort(x=>x.id)
+        result.id=this.dataSource.data[this.dataSource.data.length-1].id+1;
+        this.dataSource.data.push(result);
+        this.sortUsers();
+       // this.userService.addUser(result).subscribe(() => this.loadUsers());
       }
     });
   }
 
   editUser(user: User) {
+    this.editedid = user.id;
     const dialogRef = this.dialog.open(UserFormComponent, { width: '400px', data: user });
 
     dialogRef.afterClosed().subscribe(result => {
+      result.id=this.editedid;
       if (result) {
-        this.userService.updateUser(result).subscribe(() => this.loadUsers());
+          this.dataSource.data = this.dataSource.data.filter(x=>x.id!=user.id);
+          this.dataSource.data.push(result);
+          this.sortUsers();
       }
     });
   }
 
   deleteUser(user: User) {
     if (confirm(`Are you sure you want to delete ${user.name}?`)) {
-      this.userService.deleteUser(user.id).subscribe(() => this.loadUsers());
+      this.dataSource.data = this.dataSource.data.filter(x=>x.id!=user.id);
+      this.sortUsers();
+      //this.userService.deleteUser(user.id).subscribe(() => this.loadUsers());
     }
   }
 }

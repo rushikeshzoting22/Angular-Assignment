@@ -1,23 +1,24 @@
 import { Component, ViewChild, OnInit } from '@angular/core';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
-import { MatTableDataSource } from '@angular/material/table';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatSort } from '@angular/material/sort';
-
-// Import Angular Material modules
-import { CommonModule } from '@angular/common';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { MatIconModule } from '@angular/material/icon';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatDialogModule } from '@angular/material/dialog';
 import { MatListModule } from '@angular/material/list';
-import { MatButtonModule } from '@angular/material/button';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatDialog } from '@angular/material/dialog';
+import { UserService } from '../../app/services/user.service';
+import { UserFormComponent } from '../../app/user-form/user-form.component'; 
 
-interface User {
+export interface User {
+  id: number;
   name: string;
   company: string;
   username: string;
@@ -33,49 +34,72 @@ interface User {
   selector: 'app-dashboard',
   standalone: true,
   imports: [
-    CommonModule,
-    HttpClientModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatButtonModule,
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
     MatFormFieldModule,
     MatInputModule,
-    MatIconModule,
-    MatToolbarModule,
-    MatSidenavModule,
-    MatListModule,
-    MatButtonModule
+    MatDialogModule,
+    MatListModule
   ],
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  displayedColumns: string[] = ['name', 'company', 'username', 'email', 'address', 'zip', 'state', 'country', 'phone'];
+  displayedColumns: string[] = ['name', 'company', 'username', 'email', 'address', 'zip', 'state', 'country', 'phone', 'actions'];
   dataSource = new MatTableDataSource<User>();
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  // Sidebar control
-  opened = true;
+  opened = true; // Sidebar control
 
-  constructor(private http: HttpClient) {}
+  constructor(private userService: UserService, private dialog: MatDialog) {}
 
   ngOnInit() {
-    this.fetchUsers();
+    this.loadUsers();
   }
 
-  fetchUsers() {
-    this.http.get<User[]>('https://fake-json-api.mock.beeceptor.com/users/')
-      .subscribe(data => {
-        this.dataSource.data = data;
-        this.dataSource.paginator = this.paginator;
-        this.dataSource.sort = this.sort;
-      });
+  loadUsers() {
+    this.userService.getUsers().subscribe(data => {
+      this.dataSource.data = data;
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
+    });
   }
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  addUser() {
+    const dialogRef = this.dialog.open(UserFormComponent, { width: '400px' });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.userService.addUser(result).subscribe(() => this.loadUsers());
+      }
+    });
+  }
+
+  editUser(user: User) {
+    const dialogRef = this.dialog.open(UserFormComponent, { width: '400px', data: user });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.userService.updateUser(result).subscribe(() => this.loadUsers());
+      }
+    });
+  }
+
+  deleteUser(user: User) {
+    if (confirm(`Are you sure you want to delete ${user.name}?`)) {
+      this.userService.deleteUser(user.id).subscribe(() => this.loadUsers());
+    }
   }
 }

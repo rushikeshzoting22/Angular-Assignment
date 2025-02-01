@@ -1,7 +1,8 @@
 import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
 import { provideRouter } from '@angular/router';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { MatSidenavModule } from '@angular/material/sidenav'; // Import MatSidenavModule
+import { provideHttpClient } from '@angular/common/http';  // ✅ Import this
+import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -16,7 +17,8 @@ export const appConfig: ApplicationConfig = {
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
     provideAnimationsAsync(),
-    MatSidenavModule,  // Add Angular Material modules here
+    provideHttpClient(),  // ✅ Fix for "No provider for HttpClient!" error
+    MatSidenavModule,
     MatDialogModule,
     MatButtonModule,
     MatToolbarModule,

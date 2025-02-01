@@ -1,4 +1,4 @@
-import { Component, ViewChild, OnInit } from '@angular/core';
+import { Component, ViewChild, OnInit, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
@@ -16,6 +16,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatDialog } from '@angular/material/dialog';
 import { UserService } from '../../app/services/user.service';
 import { UserFormComponent } from '../../app/user-form/user-form.component'; 
+import { ConfirmDialogComponent } from '../../app/confirm-dialog/confirm-dialog.component';
 
 export interface User {
   id: number;
@@ -44,8 +45,12 @@ export interface User {
     MatFormFieldModule,
     MatInputModule,
     MatDialogModule,
-    MatListModule
+    MatListModule,
+    ConfirmDialogComponent
+    
   ],
+
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })

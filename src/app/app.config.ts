@@ -10,6 +10,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatDialogRef } from '@angular/material/dialog';
 import { routes } from './app.routes';
 
 export const appConfig: ApplicationConfig = {

@@ -61,7 +61,7 @@ export class DashboardComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  opened = true; // Sidebar control
+  opened = true; 
 
   constructor(private userService: UserService, private dialog: MatDialog) {}
 

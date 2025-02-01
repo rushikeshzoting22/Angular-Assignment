@@ -1,6 +1,6 @@
-/* Global Styles */
+
 body {
-  background-color: #f4f7fc; /* Light background for the body */
+  background-color: #f4f7fc; 
   font-family: 'Roboto', sans-serif;
 }
 
@@ -13,8 +13,8 @@ body {
 
 .mat-sidenav {
   width: 250px;
-  background-color: #ffffff; /* Soft white background for the sidebar */
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Light shadow */
+  background-color: #ffffff; 
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); 
 }
 
 .mat-nav-list {
@@ -29,11 +29,11 @@ body {
 }
 
 .menu-item:hover {
-  background-color: #e8eaf6; /* Soft hover effect */
-  color: #303f9f; /* Darker color on hover */
+  background-color: #e8eaf6; 
+  color: #303f9f; 
 }
 
-/* Main content area */
+
 .mat-sidenav-content {
   flex: 1;
   padding: 20px;
@@ -41,7 +41,7 @@ body {
 }
 
 .toolbar {
-  background-color: #3f51b5; /* Primary blue background for the toolbar */
+  background-color: #3f51b5; 
   color: #ffffff;
 }
 
@@ -50,25 +50,25 @@ body {
   font-size: 20px;
 }
 
-/* Table */
+
 .table {
   margin-top: 20px;
-  background-color: #ffffff; /* White background for the table */
+  background-color: #ffffff; 
   border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Soft shadow for the table */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
 }
 
 .mat-header-row, mat-row {
-  background-color: #ffffff; /* White background for rows */
+  background-color: #ffffff; 
 }
 
 .mat-header-cell, mat-cell {
-  color: #555555; /* Soft text color for better readability */
+  color: #555555; 
 }
 
-/* Paginator */
+
 mat-paginator {
-  background-color: #f7f7f7; /* Light gray background for the paginator */
+  background-color: #f7f7f7; 
   padding: 10px;
   border-radius: 8px;
 }

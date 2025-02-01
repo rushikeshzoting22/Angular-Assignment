@@ -13,7 +13,7 @@ export const routes: Routes = [
   export const appConfig: ApplicationConfig = {
     providers: [
       provideRouter(routes),
-      MatDialogModule, // Add MatDialogModule to providers if you're using it
-      UserService,     // Add any services you want to provide globally
+      MatDialogModule, 
+      UserService,     
     ],
   };

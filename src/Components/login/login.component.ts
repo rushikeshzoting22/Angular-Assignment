@@ -36,7 +36,7 @@ export class LoginComponent {
     const { username, password } = this.loginForm.value;
     if (username === 'admin' && password === 'admin123') {
       alert('Login successful!');
-      this.router.navigate(['/dashboard-component']); // Redirect to dashboard
+      this.router.navigate(['/dashboard-component']); 
     } else {
       alert('Invalid credentials!');
     }

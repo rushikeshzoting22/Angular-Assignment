@@ -1,59 +1,66 @@
-
+/* Login Container */
 .login-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background: linear-gradient(135deg, #667eea, #764ba2);
-  }
-  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #735DA5, #D3C5E5);  /* Deep Periwinkle & Soft Lilac Gradient */
+}
 
-  .login-card {
-    width: 380px;
-    padding: 20px;
-    border-radius: 12px;
-    backdrop-filter: blur(10px);
-    background: rgba(255, 255, 255, 0.15);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    color: #fff;
-    transition: transform 0.3s ease-in-out;
-  }
-  
-  .login-card:hover {
-    transform: scale(1.05);
-  }
-  
+/* Login Card Styling */
+.login-card {
+  width: 380px;
+  padding: 30px;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.1);  /* Slightly more transparent for elegance */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);  /* Softer shadow for a subtle effect */
+  text-align: center;
+  color: #fff;
+  transition: transform 0.3s ease-in-out;
+}
 
-  .full-width {
-    width: 100%;
-    margin-bottom: 15px;
-  }
-  
-  mat-form-field {
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 8px;
-  }
-  
+/* Hover effect for the card */
+.login-card:hover {
+  transform: scale(1.05);
+}
 
-  .login-button {
-    font-size: 16px;
-    font-weight: bold;
-    padding: 12px;
-    border-radius: 8px;
-  }
-  
-  
-  .login-button:hover {
-    background: #ff6f61;
-  }
-  
- 
-  mat-label {
-    color: #fff;
-  }
-  
-  mat-icon {
-    color: #fff;
-  }
-  
+/* Full width for form fields */
+.full-width {
+  width: 100%;
+  margin-bottom: 20px;  /* Increased margin for better spacing */
+}
+
+/* Form field background and styling */
+mat-form-field {
+  background: rgba(255, 255, 255, 0.2);  /* Light background for the form fields */
+  border-radius: 8px;
+  padding: 8px;
+}
+
+/* Styling for the login button */
+.login-button {
+  font-size: 16px;
+  font-weight: bold;
+  padding: 12px;
+  border-radius: 8px;
+  background-color: #735DA5;  /* Deep Periwinkle color */
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover effect for the login button */
+.login-button:hover {
+  background: #D3C5E5;  /* Soft Lilac color for hover effect */
+  color: #735DA5;  /* Change text color to Deep Periwinkle */
+}
+
+/* Label color */
+mat-label {
+  color: #fff;  /* White text for labels */
+}
+
+/* Icon color inside the form fields */
+mat-icon {
+  color: #fff;  /* White icons for consistency */
+}

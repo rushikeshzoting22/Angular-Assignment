@@ -3,6 +3,8 @@
   <mat-sidenav #sidenav mode="side" opened [fixedInViewport]="true" class="sidenav">
     <mat-nav-list>
       <a mat-list-item href="#" class="menu-item">Dashboard</a>
+      <a mat-list-item href="#" class="menu-item">Users</a>
+      <a mat-list-item href="#" class="menu-item">Settings</a>
     </mat-nav-list>
   </mat-sidenav>
 
@@ -77,10 +79,9 @@
             <button mat-button color="warn" (click)="deleteUser(user)">Delete</button>
           </td>
         </ng-container>
-        
+
         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
         <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-        
       </mat-table>
 
       <!-- Pagination -->

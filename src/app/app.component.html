@@ -1,28 +1,21 @@
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * Delete the template below * * * * * * * * * -->
-<!-- * * * * * * * to get started with your project! * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<div class="app-container">
+  <!-- Header Section -->
+  <header class="app-header">
+    <div class="header-content">
+      <h1 class="app-title">Angular Assignment</h1>
+      <nav class="app-nav">
+        <a href="#" class="nav-link">Home</a>
+      </nav>
+    </div>
+  </header>
 
-<h1>Angular Assigment</h1>
-<!-- <nav>
-  <ul>
-    <li><a routerLink="/login-component" routerLinkActive="active" ariaCurrentWhenActive="page">First Component</a></li>
-    <li><a routerLink="/dashboard-component" routerLinkActive="active" ariaCurrentWhenActive="page">Second Component</a></li>
-  </ul>
-</nav> -->
-<!-- The routed views render in the <router-outlet>-->
-<router-outlet></router-outlet>
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content above * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * End of Placeholder  * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+  <!-- Main Content Section -->
+  <div class="main-content">
+    <router-outlet></router-outlet>
+  </div>
 
-
-<router-outlet />
+  <!-- Footer Section -->
+  <footer class="app-footer">
+    <p>&copy; 2025 Winjit. All Rights Reserved.</p>
+  </footer>
+</div>
